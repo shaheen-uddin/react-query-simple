@@ -1,10 +1,17 @@
 
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import Example from "./components/Example";
 
+const queryClient = new QueryClient();
 function App() {
 
   return (
     <>
-     <h2 className="bg-orange-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus pariatur sed enim!</h2>
+    <QueryClientProvider client={queryClient}>
+        <Example />
+        <ReactQueryDevtools  />
+    </QueryClientProvider>
     </>
   )
 }
